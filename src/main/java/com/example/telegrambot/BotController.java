@@ -24,7 +24,7 @@ public class BotController {
     @GetMapping
     public String index() {
         return "<p><a href=\"/update\">Enviar mensaje</a></p>\n" +
-                "<form action=\"/winner\" method=\"POST\">\n" +
+                "<form action=\"/winners\" method=\"POST\">\n" +
                 "  <label for=\"nombre\">Nombre: <input type=\"text\" name=\"nombre\" id=\"nombre\"></label>\n" +
                 "  <label for=\"apellidos\">Apellidos: <input type=\"text\" name=\"apellidos\" id=\"apellidos\"></label>\n" +
                 "  <input type=\"submit\" value=\"Enviar\">\n" +
