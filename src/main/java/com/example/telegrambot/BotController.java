@@ -48,8 +48,7 @@ public class BotController {
     }
 
     @PostMapping("winners")
-    public String sendWinner(@RequestBody String jsonResponse) throws IOException {
-        return jsonResponse;
+    public void sendWinner(@RequestBody String jsonResponse) throws IOException {
         if (!isTeamDataModified(jsonResponse)) {
             return;
         }
