@@ -48,7 +48,8 @@ public class BotController {
     }
 
     @PostMapping("winners")
-    public void sendWinner(@RequestBody String jsonResponse) throws IOException {
+    public String sendWinner(@RequestBody String jsonResponse) throws IOException {
+        return jsonResponse;
         if (!isTeamDataModified(jsonResponse)) {
             return;
         }
@@ -81,7 +82,7 @@ public class BotController {
     // Read teamdata from repository
     private String getTeams() throws IOException {
         // Instantiating the URL class
-        URL url = new URL("https://raw.githubusercontent.com/JSalram/bootcampsolera/main/src/data/teamdata.json");
+        URL url = new URL("https://raw.githubusercontent.com/Bugabit/bootcampsolera/main/src/data/teamdata.json");
 
         // Retrieving the contents of the specified page
         Scanner sc = new Scanner(url.openStream());
