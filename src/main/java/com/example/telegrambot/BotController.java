@@ -48,21 +48,22 @@ public class BotController {
     }
 
     @PostMapping("winners")
-    public void sendWinner(@RequestBody String jsonResponse) throws IOException {
-        if (!isTeamDataModified(jsonResponse)) {
-            return;
-        }
-
-        String json = getTeams();
-        TeamData data = new Gson().fromJson(json, TeamData.class);
-        List<Team> winners = data.getWinners();
-        StringBuilder result = new StringBuilder();
-        result.append("Lista de ganadores actualizada\n\nRanking:\n");
-        for (int i = 0; i < winners.size(); i++) {
-            result.append(i + 1 ).append(". ").append(winners.get(i)).append("\n");
-        }
-
-        bot.sendMessage(result.toString());
+    public String sendWinner(@RequestBody String jsonResponse) throws IOException {
+        return jsonResponse;
+//        if (!isTeamDataModified(jsonResponse)) {
+//            return;
+//        }
+//
+//        String json = getTeams();
+//        TeamData data = new Gson().fromJson(json, TeamData.class);
+//        List<Team> winners = data.getWinners();
+//        StringBuilder result = new StringBuilder();
+//        result.append("Lista de ganadores actualizada\n\nRanking:\n");
+//        for (int i = 0; i < winners.size(); i++) {
+//            result.append(i + 1 ).append(". ").append(winners.get(i)).append("\n");
+//        }
+//
+//        bot.sendMessage(result.toString());
     }
 
     // Checks if teamdata has been modified
