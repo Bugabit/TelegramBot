@@ -43,8 +43,8 @@ public class BotController {
         return new RedirectView("");
     }
 
-    @GetMapping("winners")
-    public void sendWinner() throws IOException {
+    @PostMapping("winners")
+    public void sendWinner(@RequestBody String jsonResponse) throws IOException {
         String json = getTeams();
         TeamData data = new Gson().fromJson(json, TeamData.class);
         List<Team> winners = data.getWinners();
