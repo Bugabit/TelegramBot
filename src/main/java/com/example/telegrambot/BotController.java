@@ -1,12 +1,16 @@
 package com.example.telegrambot;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,6 +49,10 @@ public class BotController {
 
     @PostMapping("winners")
     public void sendWinner(@RequestBody String jsonResponse) throws IOException {
+        if (!isTeamDataModified(jsonResponse)) {
+            return;
+        }
+
         String json = getTeams();
         TeamData data = new Gson().fromJson(json, TeamData.class);
         List<Team> winners = data.getWinners();
@@ -53,9 +61,24 @@ public class BotController {
         for (int i = 0; i < winners.size(); i++) {
             result.append(i + 1 ).append(". ").append(winners.get(i)).append("\n");
         }
+
         bot.sendMessage(result.toString());
     }
 
+    // Checks if teamdata has been modified
+    private boolean isTeamDataModified(String json) {
+        JSONObject jsonObject = new JSONObject(json);
+        JSONObject object = jsonObject.optJSONObject("head_commit");
+        JSONArray jsonArray = object.getJSONArray("modified");
+        for(int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.getString(i).contains("teamdata.json")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Read teamdata from repository
     private String getTeams() throws IOException {
         // Instantiating the URL class
         URL url = new URL("https://raw.githubusercontent.com/JSalram/bootcampsolera/main/src/data/teamdata.json");
