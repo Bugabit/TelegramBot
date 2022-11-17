@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class BotService {
 
     static final String BOT_TOKEN = "5798304539:AAFgpy_ost1nI7yR7BCTnlhx9cdfkGU8qxU";
-    static final long CHAT_ID = 1636051587L;
+    // GENERAL GROUP CHAT
     static final long GROUP_ID = -1001561970415L;
+    // TESTING GROUP CHAT
     static final long TEST_GROUP_ID = -860576555L;
-
     private final TelegramBot bot;
 
     public BotService() {
