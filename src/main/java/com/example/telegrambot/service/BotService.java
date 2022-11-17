@@ -1,4 +1,4 @@
-package com.example.telegrambot;
+package com.example.telegrambot.service;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.request.ForceReply;

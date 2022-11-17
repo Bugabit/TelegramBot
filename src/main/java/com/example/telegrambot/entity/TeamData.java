@@ -1,4 +1,4 @@
-package com.example.telegrambot;
+package com.example.telegrambot.entity;
 
 import java.util.*;
 

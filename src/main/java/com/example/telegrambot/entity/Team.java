@@ -1,4 +1,4 @@
-package com.example.telegrambot;
+package com.example.telegrambot.entity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,8 +36,8 @@ public class Team implements Comparable<Team> {
         this.actividades = actividades;
     }
 
-    public int getPuntos() {
-        int puntos = 0;
+    public long getPuntos() {
+        long puntos = 0;
         for (Actividad actividad : actividades) {
             puntos += actividad.getPuntos();
         }
@@ -46,7 +46,7 @@ public class Team implements Comparable<Team> {
 
     @Override
     public int compareTo(@NotNull Team team) {
-        return team.getPuntos() - this.getPuntos();
+        return (int) (team.getPuntos() - this.getPuntos());
     }
 
     @Override

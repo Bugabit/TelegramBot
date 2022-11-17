@@ -1,12 +1,13 @@
-package com.example.telegrambot;
+package com.example.telegrambot.controller;
 
+import com.example.telegrambot.service.BotService;
+import com.example.telegrambot.entity.Team;
+import com.example.telegrambot.entity.TeamData;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,7 +40,7 @@ public class BotController {
         StringBuilder result = new StringBuilder();
         result.append("Lista de ganadores actualizada\n\nRanking:\n");
         for (int i = 0; i < winners.size(); i++) {
-            result.append(i + 1).append(". ").append(winners.get(i)).append("\n");
+            result.append(i + 1).append(". ").append(winners.get(i)).append(" puntos\n");
         }
 
         bot.sendMessage(result.toString());

@@ -1,8 +1,8 @@
-package com.example.telegrambot;
+package com.example.telegrambot.entity;
 
 public class Actividad {
     private String name;
-    private int puntos;
+    private long puntos;
 
     public Actividad() {
     }
@@ -15,11 +15,11 @@ public class Actividad {
         this.name = name;
     }
 
-    public int getPuntos() {
+    public long getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(int puntos) {
+    public void setPuntos(long puntos) {
         this.puntos = puntos;
     }
 }
