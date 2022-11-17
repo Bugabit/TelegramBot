@@ -12,7 +12,7 @@ public class BotService {
     // GENERAL GROUP CHAT
     static final long GROUP_ID = -1001561970415L;
     // TESTING GROUP CHAT
-    static final long TEST_GROUP_ID = -860576555L;
+    static final long TEST_GROUP_ID = -1001803996079L;
     private final TelegramBot bot;
 
     public BotService() {
