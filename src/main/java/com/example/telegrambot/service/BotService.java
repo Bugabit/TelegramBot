@@ -29,8 +29,7 @@ public class BotService {
         SendMessage request = new SendMessage(TEST_GROUP_ID, message)
                 .parseMode(ParseMode.HTML)
                 .disableWebPagePreview(true)
-                .disableNotification(true)
-                .replyMarkup(new ForceReply());
+                .disableNotification(true);
 
         // Executing request (sending message)
         bot.execute(request);
