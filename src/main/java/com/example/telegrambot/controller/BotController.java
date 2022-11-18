@@ -40,13 +40,13 @@ public class BotController {
         StringBuilder result = new StringBuilder();
         result.append("Lista de ganadores actualizada\n\nRanking:\n");
         int index = 1;
-        float maxPuntos = winners.get(0).getPuntos();
-        for (int i = 0; i < winners.size(); i++) {
-            if (maxPuntos > winners.get(i).getPuntos()) {
-                maxPuntos = winners.get(i).getPuntos();
+        float maxPoints = winners.get(0).getPuntos();
+        for (Team winner : winners) {
+            if (maxPoints > winner.getPuntos()) {
+                maxPoints = winner.getPuntos();
                 index++;
             }
-            result.append(index).append(". ").append(winners.get(i)).append(" puntos\n");
+            result.append(index).append(". ").append(winner).append(" puntos\n");
         }
 
         bot.sendMessage(result.toString());
